@@ -1,0 +1,158 @@
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f0f0f0;
+  min-height: 100vh;
+  margin: 0;
+  padding: 16px;
+  color: #333;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 24px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.forms-wrapper {
+  position: relative;
+  min-height: 400px;
+  overflow: visible;
+}
+
+.form-field,
+.username,
+.password {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-field:last-of-type,
+.username,
+.password {
+  margin-bottom: 10px;
+}
+
+.form-field label,
+.username label,
+.password label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #444;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #111;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #0066cc;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 12px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0066cc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0052a3;
+}
+
+.result,
+.result-in-form {
+  display: block;
+  margin: 10px 0 8px;
+  font-size: 0.85rem;
+  color: #444;
+  text-align: center;
+}
+
+.toggle-link {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.toggle-link a {
+  color: #0066cc;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.role-choice {
+  text-align: left;
+  margin: 8px 0 10px;
+  padding: 8px 10px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.role-choice > label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.role-options {
+  display: flex;
+  gap: 16px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.role-option input {
+  width: auto;
+  margin: 0;
+}
+
+.form-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateX(-12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.form-panel.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}

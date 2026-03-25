@@ -1,0 +1,60 @@
+<div class="login-container">
+  <div class="forms-wrapper">
+    <div class="form-panel" [class.active]="!showSignUp">
+      <div class="username">
+        <label>Username</label>
+        <input type="text" [(ngModel)]="username">
+      </div>
+      <div class="password">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password">
+      </div>
+      <button (click)="validateLogin()">Login</button>
+      <p class="result-in-form" *ngIf="result && !showSignUp">{{ result }}</p>
+      <p class="toggle-link">
+        Don't have an account? <a (click)="showSignUp = true">Sign up</a>
+      </p>
+    </div>
+    
+    <div class="form-panel" [class.active]="showSignUp">
+      <div class="form-field">
+        <label>Username</label>
+        <input type="text" [(ngModel)]="username">
+      </div>
+      <div class="form-field">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password">
+      </div>
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" placeholder="your@email.com">
+      </div>
+      <div class="form-field">
+        <label>Student ID</label>
+        <input type="text" [(ngModel)]="studentId" placeholder="e.g. 2024-12345">
+      </div>
+      <div class="role-choice">
+        <label>Sign up as</label>
+        <div class="role-options">
+          <label class="role-option">
+            <input type="radio" name="signUpType" [(ngModel)]="signUpType" value="user"> User
+          </label>
+          <label class="role-option">
+            <input type="radio" name="signUpType" [(ngModel)]="signUpType" value="admin"> Admin
+          </label>
+        </div>
+      </div>
+      <button (click)="signUp()">Sign up</button>
+      <p class="result-in-form" *ngIf="result && showSignUp">{{ result }}</p>
+      <p class="toggle-link">
+        Already have an account? <a (click)="showSignUp = false">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="isLoginSuccessful">
+  <app-users *ngIf="isAdmin"></app-users>
+  <app-add-users *ngIf="!isAdmin"></app-add-users>
+
+</div>
