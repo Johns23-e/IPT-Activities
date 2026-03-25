@@ -1,0 +1,105 @@
+.users {
+  margin-top: 18px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(128, 0, 0, 0.14);
+}
+
+.users-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: #4d0000;
+}
+
+.users-subtitle {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fdf5f5;
+  border: 1px solid rgba(128, 0, 0, 0.14);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+}
+
+.stat-value {
+  margin-top: 4px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #800000;
+}
+
+.stat-footnote {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.table-card {
+  padding: 12px 12px 10px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(128, 0, 0, 0.16);
+}
+
+.table-title {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: #4d0000;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th,
+td {
+  padding: 6px 4px;
+  text-align: left;
+}
+
+thead th {
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.badge-active {
+  background: rgba(34, 197, 94, 0.1);
+  color: #166534;
+}
+
+.badge-pending {
+  background: rgba(250, 204, 21, 0.15);
+  color: #854d0e;
+}
+

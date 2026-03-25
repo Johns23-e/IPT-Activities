@@ -1,0 +1,95 @@
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-mark">EVSU</div>
+      <div class="brand-text">
+        <span class="brand-title">Eastern Visayas State University</span>
+        <span class="brand-subtitle">IPT Activity 5 · Login Portal</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- LOGIN / SIGNUP CARD -->
+    <div *ngIf="!isLoginSuccessful" class="login-card">
+      <div class="forms-wrapper">
+        <!-- LOGIN FORM -->
+        <div class="form-panel" *ngIf="!showSignUp">
+          <h2 class="panel-title">Sign in</h2>
+          <p class="panel-subtitle">Use your EVSU account credentials</p>
+
+          <div class="form-field">
+            <label>Username</label>
+            <input type="text" [(ngModel)]="username">
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="password">
+          </div>
+          <button (click)="validateLogin()">Login</button>
+          <p class="result-in-form" *ngIf="result && !showSignUp">{{ result }}</p>
+          <p class="toggle-link">
+            Don't have an account?
+            <a (click)="showSignUp = true">Create an account</a>
+          </p>
+        </div>
+
+        <!-- SIGN UP FORM -->
+        <div class="form-panel" *ngIf="showSignUp">
+          <h2 class="panel-title">Create account</h2>
+          <p class="panel-subtitle">
+            Register as a new EVSU user or admin
+          </p>
+
+          <div class="form-field">
+            <label>Username</label>
+            <input type="text" [(ngModel)]="username">
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="password">
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="email" placeholder="your@student.evsu.edu.ph">
+          </div>
+          <div class="form-field">
+            <label>Student ID</label>
+            <input type="text" [(ngModel)]="studentId" placeholder="e.g. 2024-12345">
+          </div>
+          <div class="role-choice">
+            <label>Sign up as</label>
+            <div class="role-options">
+              <label class="role-option">
+                <input type="radio" name="signUpType" [(ngModel)]="signUpType" value="user"> User
+              </label>
+              <label class="role-option">
+                <input type="radio" name="signUpType" [(ngModel)]="signUpType" value="admin"> Admin
+              </label>
+            </div>
+          </div>
+          <button (click)="signUp()">Sign up</button>
+          <p class="result-in-form" *ngIf="result && showSignUp">{{ result }}</p>
+          <p class="toggle-link">
+            Already have an account?
+            <a (click)="showSignUp = false">Back to login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD AREA -->
+    <div *ngIf="isLoginSuccessful" class="dashboard-container">
+      <h2 class="dashboard-title">
+        {{ isAdmin ? 'Admin Dashboard' : 'User Dashboard' }}
+      </h2>
+      <p class="dashboard-subtitle">
+        Welcome, {{ isAdmin ? 'Administrator' : 'Student User' }} {{ username }}.
+      </p>
+      <button class="logout-btn" (click)="logout()">Log out</button>
+
+      <app-users *ngIf="isAdmin"></app-users>
+      <app-add-users *ngIf="!isAdmin"></app-add-users>
+    </div>
+  </main>
+</div>

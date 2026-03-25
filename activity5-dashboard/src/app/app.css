@@ -1,0 +1,274 @@
+.app-shell {
+  /* EVSU brand tokens scoped to the root shell */
+  --evsu-maroon: #800000;
+  --evsu-maroon-dark: #4d0000;
+  --evsu-gold: #f0c75e;
+  --evsu-gray: #f4f4f6;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top left, #ffffff 0, #f6f0ea 35%, #f1e5d6 100%);
+  color: #1f2933;
+}
+
+.app-header {
+  padding: 16px 24px;
+  background: linear-gradient(90deg, var(--evsu-maroon) 0%, var(--evsu-maroon-dark) 60%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 20%, #ffffff 0, #fef3d4 30%, var(--evsu-gold) 80%);
+  color: var(--evsu-maroon-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px 32px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.18),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 24px 22px 20px;
+  border: 1px solid rgba(128, 0, 0, 0.14);
+}
+
+.forms-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-panel {
+  padding: 8px 4px 4px;
+}
+
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--evsu-maroon-dark);
+}
+
+.panel-subtitle {
+  font-size: 0.85rem;
+  margin: 0 0 16px;
+  color: #4b5563;
+}
+
+.form-field {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 9px 11px;
+  font-size: 0.9rem;
+  color: #111827;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  box-sizing: border-box;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--evsu-maroon);
+  box-shadow: 0 0 0 2px rgba(128, 0, 0, 0.12);
+}
+
+button {
+  width: 100%;
+  padding: 9px 16px;
+  margin: 14px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--evsu-maroon) 0%,
+    var(--evsu-maroon-dark) 100%
+  );
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(76, 0, 0, 0.45);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    filter 0.15s ease;
+}
+
+button:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(76, 0, 0, 0.55);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(76, 0, 0, 0.5);
+}
+
+.result,
+.result-in-form {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #b91c1c;
+}
+
+.toggle-link {
+  margin-top: 8px;
+  font-size: 0.83rem;
+  color: #4b5563;
+  text-align: center;
+}
+
+.toggle-link a {
+  color: var(--evsu-maroon);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+}
+
+.role-choice {
+  text-align: left;
+  margin: 8px 0 10px;
+  padding: 9px 11px;
+  background: var(--evsu-gray);
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.role-choice > label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.role-options {
+  display: flex;
+  gap: 16px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.role-option input {
+  width: auto;
+  margin: 0;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 22px 18px;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.18),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(128, 0, 0, 0.16);
+}
+
+.dashboard-title {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+  color: var(--evsu-maroon-dark);
+}
+
+.dashboard-subtitle {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.logout-btn {
+  max-width: 140px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding-inline: 16px;
+  }
+
+  .brand-title {
+    font-size: 0.9rem;
+  }
+
+  .login-card,
+  .dashboard-container {
+    padding-inline: 18px;
+  }
+}

@@ -1,0 +1,62 @@
+.add-users {
+  margin-top: 18px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(128, 0, 0, 0.14);
+}
+
+.add-users-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  color: #4d0000;
+}
+
+.add-users-subtitle {
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.profile-card {
+  border-radius: 14px;
+  background: #fdf5f5;
+  border: 1px solid rgba(128, 0, 0, 0.16);
+  padding: 12px 12px 10px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.86rem;
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+}
+
+.profile-row .label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.profile-row .value {
+  color: #111827;
+}
+
+.badge-role {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(128, 0, 0, 0.08);
+  color: #4d0000;
+  font-size: 0.78rem;
+}
+
+.info-note {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+
