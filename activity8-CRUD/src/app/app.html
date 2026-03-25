@@ -1,0 +1,172 @@
+<div class="page">
+  <div class="header">
+    <div class="header-left">
+      <img src="/EVSU.png" class="logo-img">
+      <span class="logo-text">EVSU-DC</span>
+    </div>
+  </div>
+
+  <!-- LOGIN VIEW -->
+  <div *ngIf="isLogin" class="layout layout-single">
+    <div class="card auth-card">
+      <h2 class="auth-title">Student Login</h2>
+
+      <form [formGroup]="loginForm">
+        <div class="input-group">
+          <label>Username / Email</label>
+          <input formControlName="usernameOrEmail" type="text" placeholder="Enter username/email">
+          <p class="error" *ngIf="submittedLogin && loginForm.get('usernameOrEmail')?.invalid">
+            <span *ngIf="loginForm.get('usernameOrEmail')?.errors?.['required']">Username/email is required.</span>
+            <span *ngIf="loginForm.get('usernameOrEmail')?.errors?.['minlength']">Must be at least 2 characters.</span>
+          </p>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input formControlName="password" type="password" placeholder="Enter password">
+          <p class="error" *ngIf="submittedLogin && loginForm.get('password')?.invalid">
+            <span *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</span>
+          </p>
+        </div>
+      </form>
+
+      <button type="button" (click)="Validate()">Sign In</button>
+
+      <p class="switch">
+        No account?
+        <span (click)="switchForm()">Register here</span>
+      </p>
+
+      <p class="message">{{ message }}</p>
+    </div>
+  </div>
+
+  <!-- REGISTRATION / CRUD VIEW (Table + Search + CRUD already visible) -->
+  <div *ngIf="!isLogin" class="layout">
+    <div class="card form-card">
+      <h1 class="page-title">{{ heading }}</h1>
+
+      <form [formGroup]="userForm" (ngSubmit)="selectedUserId ? onUpdate() : onCreate()">
+        <div class="input-group">
+          <label>Username</label>
+          <input formControlName="username" type="text" placeholder="Enter username">
+          <p class="error" *ngIf="userForm.get('username')?.touched && userForm.get('username')?.invalid">
+            <span *ngIf="userForm.get('username')?.errors?.['required']">Username is required.</span>
+            <span *ngIf="userForm.get('username')?.errors?.['minlength']">Username must be at least 2 characters.</span>
+          </p>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input formControlName="email" type="email" placeholder="Enter email">
+          <p class="error" *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+            <span *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</span>
+            <span *ngIf="userForm.get('email')?.errors?.['email']">Invalid email format.</span>
+          </p>
+        </div>
+
+        <div class="input-group">
+          <label>Contact Number</label>
+          <input formControlName="phoneNumber" type="text" placeholder="e.g. +639171234567">
+          <p class="error" *ngIf="userForm.get('phoneNumber')?.touched && userForm.get('phoneNumber')?.invalid">
+            <span *ngIf="userForm.get('phoneNumber')?.errors?.['required']">Contact number is required.</span>
+            <span *ngIf="userForm.get('phoneNumber')?.errors?.['pattern']">Use digits with optional +, 7-15 length.</span>
+          </p>
+        </div>
+
+        <div class="input-group">
+          <label>Address</label>
+          <input formControlName="address" type="text" placeholder="Enter address">
+          <p class="error" *ngIf="userForm.get('address')?.touched && userForm.get('address')?.invalid">
+            <span *ngIf="userForm.get('address')?.errors?.['required']">Address is required.</span>
+            <span *ngIf="userForm.get('address')?.errors?.['minlength']">Address must be at least 3 characters.</span>
+          </p>
+        </div>
+
+        <div class="input-group">
+          <label>Role</label>
+          <div class="role-options">
+            <label class="role-card">
+              <input type="radio" formControlName="role" value="student">
+              Student
+            </label>
+            <label class="role-card">
+              <input type="radio" formControlName="role" value="instructor">
+              Instructor
+            </label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Password (for validation demo)</label>
+          <input formControlName="password" type="password" placeholder="Create password">
+          <p class="error" *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid">
+            <span *ngIf="userForm.get('password')?.errors?.['required']">Password is required.</span>
+            <span *ngIf="userForm.get('password')?.errors?.['minlength']">Password must be at least 5 characters.</span>
+            <span *ngIf="userForm.get('password')?.errors?.['maxlength']">Password cannot exceed 12 characters.</span>
+          </p>
+        </div>
+
+        <div class="actions-row">
+          <button type="submit">{{ selectedUserId ? 'Update User' : 'Create User' }}</button>
+          <button type="button" class="secondary" (click)="onClear()">Clear</button>
+        </div>
+      </form>
+
+      <div *ngIf="errors.length" class="message message-error">
+        <div *ngFor="let e of errors">{{ e }}</div>
+      </div>
+      <p class="message message-success" *ngIf="message && errors.length === 0">{{ message }}</p>
+
+      <p class="switch">
+        Already have an account?
+        <span (click)="switchForm()">Login here</span>
+      </p>
+    </div>
+
+    <div class="card table-card">
+      <h2>Users</h2>
+
+      <div class="table-toolbar">
+        <input
+          type="text"
+          placeholder="Search username, email, phone..."
+          [value]="searchQuery"
+          (input)="onSearchInput($event)"
+        >
+        <button type="button" class="secondary btn-sm" (click)="searchQuery=''; onSearch()">Reset</button>
+      </div>
+
+      <table *ngIf="filteredUsers.length; else empty">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of filteredUsers">
+            <td>{{ u.username }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.phoneNumber }}</td>
+            <td>{{ u.address }}</td>
+            <td>{{ u.roleLabel }}</td>
+            <td class="table-actions">
+              <button type="button" class="btn-sm" (click)="onEdit(u)">Edit</button>
+              <button type="button" class="btn-sm danger" (click)="onDelete(u.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #empty>
+        <p class="empty">No users found.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+

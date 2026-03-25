@@ -1,0 +1,276 @@
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:#f3f4f6;
+}
+
+/* HEADER */
+.header{
+  position:absolute;
+  top:0;
+  width:100%;
+  background:#8B0000;
+  padding:10px 25px;
+  color:white;
+  font-size:20px;
+  display:flex;
+  align-items:center;
+}
+
+/* LEFT HEADER CONTENT */
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* LOGO IMAGE */
+.logo-img{
+  height:40px;
+  width:auto;
+}
+
+/* TEXT */
+.logo-text{
+  font-weight:bold;
+  font-size:20px;
+}
+.logo{
+  font-weight:bold;
+  margin-right:10px;
+}
+
+/* PAGE CENTER */
+.page{
+  min-height:100vh;
+  padding-top:90px; /* room for absolute header */
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  width:auto;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TWO-PANEL LAYOUT */
+.layout{
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
+  display:flex;
+  gap:22px;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+
+.layout-single{
+  justify-content:center;
+}
+
+.form-card{
+  flex:0 0 420px;
+}
+
+.table-card{
+  flex:1;
+  padding:30px;
+}
+
+.page-title{
+  text-align:center;
+  margin:0 0 18px;
+  color:#8B0000;
+}
+
+.auth-card{
+  width:340px;
+  max-width:340px;
+}
+
+.auth-title{
+  margin:0 0 18px;
+  color:#8B0000;
+}
+
+/* TITLE */
+h2{
+  text-align:center;
+  margin-bottom:25px;
+  color:#8B0000;
+}
+
+/* INPUT GROUP */
+.input-group{
+  margin-bottom:15px;
+}
+
+label{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+}
+
+input,select{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  outline:none;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:12px;
+  background:#8B0000;
+  border:none;
+  border-radius:6px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+button:hover{
+  background:#a30000;
+}
+
+.secondary{
+  background:#fff;
+  color:#8B0000;
+  border:1px solid #8B0000;
+}
+
+.actions-row{
+  display:flex;
+  gap:12px;
+  margin-top:10px;
+}
+
+.actions-row button{
+  margin-top:0;
+}
+
+.table-toolbar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.btn-sm{
+  width:auto !important;
+  padding:8px 12px;
+  margin-top:0 !important;
+  font-size:13px;
+}
+
+.table-actions{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+
+.danger{
+  background:#b00020 !important;
+  border:none !important;
+}
+
+.danger:hover{
+  background:#d0002a !important;
+}
+
+/* SWITCH TEXT */
+.switch{
+  text-align:center;
+  margin-top:15px;
+}
+
+.switch span{
+  color:#8B0000;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* MESSAGE */
+.message{
+  text-align:center;
+  margin-top:15px;
+  color:red;
+}
+
+.message-success{
+  color:#155724;
+}
+
+.message-error{
+  color:rgb(114, 24, 24);
+  text-align:left;
+  margin-top:10px;
+}
+
+/* TABLE */
+table{
+  border-collapse:collapse;
+  width:100%;
+  margin-top:20px;
+  font-size:14px;
+}
+
+table th{
+  background:#8B0000;
+  color:white;
+  padding:8px;
+}
+
+table td{
+  border:1px solid #ddd;
+  padding:8px;
+  text-align:center;
+}
+
+.role-options{
+  display:flex;
+  gap:10px;
+  margin-top:8px;
+}
+
+.role-card{
+  flex:1;
+  border:1px solid #ccc;
+  padding:10px;
+  border-radius:6px;
+  cursor:pointer;
+  text-align:center;
+  background:#f9f9f9;
+  transition:0.2s;
+}
+
+.role-card:hover{
+  background:#ffe5e5;
+  border-color:#8B0000;
+}
+
+.role-card input{
+  margin-right:5px;
+}
+
+.error {
+  color: rgb(114, 24, 24);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.empty{
+  text-align:center;
+  color:#666;
+  padding:16px 0;
+}
