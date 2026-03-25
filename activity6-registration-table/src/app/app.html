@@ -1,0 +1,101 @@
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <img src="/EVSU.png" class="logo-img">
+      <span class="logo-text">EVSU-DC</span>
+    </div>
+  </div>
+  <div class="card">
+
+    <h2 *ngIf="isLogin">Student Login</h2>
+    <h2 *ngIf="!isLogin">Student Registration</h2>
+
+    <!-- LOGIN -->
+    <div *ngIf="isLogin">
+
+      <div class="input-group">
+        <label>Email</label>
+        <input [(ngModel)]="email" type="email" placeholder="Enter your email">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input [(ngModel)]="password" type="password" placeholder="Enter password">
+      </div>
+
+      <button (click)="Validate()">Sign In</button>
+
+      <p class="switch">
+        No account?
+        <span (click)="switchForm()">Register here</span>
+      </p>
+
+    </div>
+
+    <!-- REGISTER -->
+    <div *ngIf="!isLogin">
+
+      <div class="input-group">
+        <label>Email</label>
+        <input [(ngModel)]="regEmail" type="email" placeholder="Enter email">
+      </div>
+
+      <div class="input-group">
+        <label>Username</label>
+        <input [(ngModel)]="usernameReg" type="text" placeholder="Choose username">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input [(ngModel)]="regPassword" type="password" placeholder="Create password">
+      </div>
+
+      <div class="input-group">
+        <label>Role</label>
+      
+        <div class="role-options">
+      
+          <label class="role-card">
+            <input type="radio" name="role" value="student" [(ngModel)]="role">
+            Student
+          </label>
+      
+          <label class="role-card">
+            <input type="radio" name="role" value="instructor" [(ngModel)]="role">
+            Instructor
+          </label>
+      
+        </div>
+      </div>
+
+      <button (click)="register()">Register</button>
+
+      <p class="switch">
+        Already have an account?
+        <span (click)="switchForm()">Login here</span>
+      </p>
+
+      <!-- USER TABLE -->
+      <table *ngIf="hasValidated">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let users of newuserList">
+            <td>{{users.email}}</td>
+            <td>{{users.username}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <p class="message">{{message}}</p>
+
+  </div>
+</div>
