@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="username">
+    <label>Username</label>
+    <input type="text" [(ngModel)]="username">
+  </div>
+  <br />
+  <div class="password">
+    <label>Password</label>
+    <input type="password" [(ngModel)]="password">
+  </div>
+
+  <br />
+  <button (click)="validateLogin()">Click me</button>
+  <br />
+  <label>{{ result }}</label>
+
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="isLoginSuccessful">
+  <app-users *ngIf="isAdmin"></app-users>
+  <app-add-users *ngIf="!isAdmin"></app-add-users>
+
+</div>
